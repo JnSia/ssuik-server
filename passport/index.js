@@ -1,7 +1,7 @@
-const passport = require("passport");
-const local = require("./localStrategy");
-const kakao = require("./kakaoStrategy.js");
-const User = require("../models/user");
+const passport = require('passport');
+const local = require('./localStrategy');
+const kakao = require('./kakaoStrategy.js');
+const User = require('../models/user');
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
@@ -14,13 +14,13 @@ module.exports = () => {
       include: [
         {
           model: User,
-          attributes: ["id", "nickname"],
-          as: "Followers",
+          attributes: ['id', 'nickname'],
+          as: 'Followers',
         },
         {
           model: User,
-          attributes: ["id", "nickname"],
-          as: "Followings",
+          attributes: ['id', 'nickname'],
+          as: 'Followings',
         },
       ],
     })
@@ -29,5 +29,5 @@ module.exports = () => {
   });
 
   local();
-  kakao();
+  // kakao();
 };

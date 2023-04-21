@@ -24,6 +24,6 @@ module.exports = class Hashtag extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.Hashtag.belongsToMany(db.User, { through: 'UserAdvertisement' });
+    db.Advertisement.belongsToMany(db.User, { through: 'UserAdvertisement' });
   }
 };

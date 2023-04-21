@@ -42,7 +42,7 @@ module.exports = class User extends Sequelize.Model {
           allowNull: false,
         },
         point: {
-          type: Sequelize.NUMBER(100),
+          type: Sequelize.INTEGER(100),
           allowNull: true,
         },
         processAds: {
