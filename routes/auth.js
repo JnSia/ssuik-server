@@ -8,10 +8,11 @@ const router = express.Router();
 
 router.post('/resister', isNotLoggedIn, async (req, res, next) => {
   const { email, password, nickname, name, birthday, phoneNumber, sex, image, job } = req.body;
+
   try {
     const exUser = await User.findOne({ where: { email } });
     if (exUser) {
-      return res.redirect('/join?error=exist');
+      return console.log('이미 가입한 회원입니다.')
     }
 
     const hash = await bcrypt.hash(password, 12);
@@ -24,11 +25,11 @@ router.post('/resister', isNotLoggedIn, async (req, res, next) => {
       birthday,
       phoneNumber,
       sex,
-      image,
+      // image,
       job,
     });
 
-    return res.redirect('/');
+    return 
   } catch (error) {
     console.error(error);
     return next(error);

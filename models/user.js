@@ -18,7 +18,7 @@ module.exports = class User extends Sequelize.Model {
           allowNull: false,
         },
         birthday: {
-          type: Sequelize.DATE(),
+          type: Sequelize.STRING(50),
           allowNull: false,
         },
         phoneNumber: {
@@ -34,7 +34,7 @@ module.exports = class User extends Sequelize.Model {
           allowNull: true,
         },
         nickname: {
-          type: Sequelize.STRING(15),
+          type: Sequelize.STRING(100),
           allowNull: false,
         },
         job: {
